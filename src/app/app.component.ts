@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-// import { KyotoComponent } from './kyoto/kyoto.component';
-// import { TokyoComponent } from './tokyo/tokyo.component';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 
 @Component({
@@ -8,8 +7,9 @@ import { Component } from '@angular/core';
   selector: 'oreNo-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  // directives: [KyotoComponent, TokyoComponent]
+  directives: [ROUTER_DIRECTIVES]
 })
+
 export class AppComponent {
-  title = 'app works!';
+  title = 'Konnichiwa-!';
 }

@@ -1,0 +1,11 @@
+header {
+  background-color: maroon;
+  width: 100%;
+  height: 35%;
+  font-family: courier;
+}
+
+a {
+	color: #cc2900;
+	font-family: courier;
+}
