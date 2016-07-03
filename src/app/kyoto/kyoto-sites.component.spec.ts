@@ -10,11 +10,11 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { KyotoComponent } from './kyoto.component';
+import { KyotoSitesComponent } from './kyoto-sites.component';
 
-describe('Component: Kyoto', () => {
+describe('Component: KyotoSites', () => {
   it('should create an instance', () => {
-    let component = KyotoComponent;
+    let component = new KyotoSitesComponent();
     expect(component).toBeTruthy();
   });
 });

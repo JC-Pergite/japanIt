@@ -1,6 +1,15 @@
 <p>
   Kyoto awaits!
 </p>
+
+<div class="site list">
+	<ul>
+		<li *ngFor="let event of events">
+		 <a class="text">{{event.name}}</a>
+		</li>
+	</ul>
+</div>
+
 <div class="detail">
             <router-outlet></router-outlet>
 </div>

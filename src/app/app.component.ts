@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { KyotoSitesService } from './kyoto/kyoto-sites.service';
 
 
 @Component({
@@ -7,7 +8,8 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   selector: 'oreNo-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES],
+  providers: [ KyotoSitesService ]
 })
 
 export class AppComponent {

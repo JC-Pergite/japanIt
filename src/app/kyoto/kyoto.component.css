@@ -1,0 +1,13 @@
+.list {
+  border: 1px solid #ccc;
+  background-color: #eee;
+  margin: 0 -5px;
+  padding: 5px;
+}
+
+.text {
+      display: inline-block;
+      vertical-align: top;
+      font-weight: bold;
+      font-size: 1.15em;
+}
