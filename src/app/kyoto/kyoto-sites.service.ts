@@ -13,8 +13,8 @@ export class KyotoSitesService {
   	];
   }
 
-  getAllSites() {
-  	return this.events
-  }
+  // getAllSites() {
+  // 	return this.events
+  // }
 
 }

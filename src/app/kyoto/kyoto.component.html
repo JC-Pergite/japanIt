@@ -4,8 +4,9 @@
 
 <div class="site list">
 	<ul>
-		<li *ngFor="let event of events">
-		 <a class="text">{{event.name}}</a>
+		<li *ngFor="let event of events"
+			(click)="onSelect(event)">
+		 <a class="text">{{event.id}}</a>{{event.name}}
 		</li>
 	</ul>
 </div>
