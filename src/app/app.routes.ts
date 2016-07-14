@@ -4,7 +4,6 @@ import { TokyoComponent } from './tokyo/tokyo.component';
 
 export const routes: RouterConfig = [
 	...KyotoRoutes,
-	// { path: 'kyoto', component: KyotoComponent },
 	{ path: 'tokyo', component: TokyoComponent }
 ];
 

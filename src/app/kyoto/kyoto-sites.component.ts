@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Event } from '../shared/event';
 import { KyotoSitesService } from './kyoto-sites.service';
 
-
 @Component({
   moduleId: module.id,
   selector: 'ore-no-kyoto-sites',
@@ -14,22 +13,23 @@ import { KyotoSitesService } from './kyoto-sites.service';
   `,
   styleUrls: ['kyoto-sites.component.css']
 })
-export class KyotoSitesComponent implements OnInit {
+export class KyotoSitesComponent implements OnInit, OnDestroy {
+  selectedEvent: Event;
+  private sub: any;
 
-  private subscr: any;
-
-  constructor(private _route: ActivatedRoute, private _router: Router, 
-                private _kyotoService: KyotoService) {}
+  constructor(private route: ActivatedRoute, private router: Router, 
+                private kyotoSitesService: KyotoSitesService) {}
 
   ngOnInit() {
-    this.subscr = this.route.params.subscribe(params => {
+    this.sub = this.route.params.subscribe(params => {
       let id = +params['id'];
-      this.service.getSite(id).then(event => this.event = event);
+      // this.kyotoSitesService.getSite(id).then(event => this.selectedEvent = event);
+          this.selectedEvent = this.kyotoSitesService.getSite(id); 
     });
   }
 
   ngOnDestroy() {
-    this.subcr.unsubscribe();
+    this.sub.unsubscribe();
   }
 
 }

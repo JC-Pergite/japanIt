@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { KyotoSitesService } from './kyoto-sites.service';
 import { Event } from '../shared/event';
 
@@ -12,21 +12,18 @@ import { Event } from '../shared/event';
   providers: [ KyotoSitesService ]
 })
 export class KyotoComponent implements OnInit {
-	events : Event[];
+	events: Event[];
+	
 
-  // constructor(private _kyotoSitesService: KyotoSitesService) {
-  // 	this.events = _kyotoSitesService.getAllSites()
+  constructor(private router: Router, private kyotoSitesService: KyotoSitesService) {}
+
+  // onSelect(events: Event) {
+  // 	this.router.navigate(['/kyoto', events.id]);
   // }
-
-  constructor(private _router: Router, private _kyotoService: KyotoService) {}
-
-  onSelect(event: Event) {
-  	this._router.navigate(['/kyoto', kyoto.id]);
-  }
 
 
   ngOnInit() {
-
+  		this.events = this.kyotoSitesService.getSites();
   }
 
 }

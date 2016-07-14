@@ -4,12 +4,15 @@
 
 <div class="site list">
 	<ul>
-		<li *ngFor="let event of events"
-			(click)="onSelect(event)">
-		 <a class="text">{{event.id}}</a>{{event.name}}
+		<li *ngFor="let event of events">	
+		 <a [routerLink]="['./:id']">{{event.name}}</a>
 		</li>
 	</ul>
 </div>
+
+ <!-- <div class="deets">
+    <h1>{{selectedEvent?.content}}</h1>
+  </div> -->
 
 <div class="detail">
             <router-outlet></router-outlet>

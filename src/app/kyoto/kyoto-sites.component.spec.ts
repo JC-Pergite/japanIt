@@ -14,7 +14,7 @@ import { KyotoSitesComponent } from './kyoto-sites.component';
 
 describe('Component: KyotoSites', () => {
   it('should create an instance', () => {
-    let component = new KyotoSitesComponent();
+    let component = KyotoSitesComponent;
     expect(component).toBeTruthy();
   });
 });
