@@ -1,6 +1,3 @@
 export class Activity {
-    constructor(name: string, craving: number) {
-        this.name = name;
-        this.craving = craving;
-    }
+    constructor(public name: string, public craving: number) {}
 }

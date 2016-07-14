@@ -9,7 +9,6 @@ export class KyotoSitesService {
       new Event('Kinkakuji', 'No silver, but the garden is great', '', '', [])
     ];
 	
-
   constructor() {}
 
    getSites() {

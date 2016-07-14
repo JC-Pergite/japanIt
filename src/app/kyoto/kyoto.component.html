@@ -1,19 +1,10 @@
 <p>
   Kyoto awaits!
 </p>
-
-<div class="site list">
-	<ul>
-		<li *ngFor="let event of events">	
-		 <a [routerLink]="['./:id']">{{event.name}}</a>
-		</li>
-	</ul>
+<div class="deets">
+	<ore-no-kyoto-list></ore-no-kyoto-list>
 </div>
 
- <!-- <div class="deets">
-    <h1>{{selectedEvent?.content}}</h1>
-  </div> -->
-
 <div class="detail">
-            <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>
