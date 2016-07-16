@@ -4,6 +4,6 @@ export class JapanItPage {
   }
 
   getParagraphText() {
-    return element(by.css('oreNo-root h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }

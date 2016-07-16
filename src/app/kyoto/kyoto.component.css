@@ -14,9 +14,10 @@
 
 .deets {
   border: 1px solid #ccc;
-  background-color: #efe;
+  background-color: grey;
   margin: 0 -5px;
   padding: 5px;
+  color: salmon;
 }
 
 .h1 {

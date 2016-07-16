@@ -7,13 +7,10 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  'moment': 'vendor/moment/moment.js',
-  'ng2-bootstrap': 'vendor/ng2-boostrap'
 };
 
 /** User packages configuration. */
 const packages: any = {
-  'ng2-bootstrap': 'ng2-bootstrap.js'
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,6 +22,7 @@ const barrels: string[] = [
   '@angular/core',
   '@angular/common',
   '@angular/compiler',
+  '@angular/forms',
   '@angular/http',
   '@angular/router',
   '@angular/platform-browser',
@@ -36,9 +34,6 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
-  'app/places',
-  'app/kyoto',
-  'app/tokyo',
   /** @cli-barrel */
 ];
 

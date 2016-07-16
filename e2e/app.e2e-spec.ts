@@ -9,6 +9,6 @@ describe('japan-it App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('oreNo works!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
