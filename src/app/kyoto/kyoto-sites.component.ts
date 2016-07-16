@@ -19,7 +19,7 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      let eventIndex = +params['id'];
+      this.eventIndex = +params['id'];
           this.selectedEvent = this.kyotoSitesService.getSite(this.eventIndex);
     });
   }
