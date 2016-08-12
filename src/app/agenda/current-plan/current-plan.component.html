@@ -1,0 +1,13 @@
+<div class="itenarary">
+<h2>Plan it</h2>
+	<ore-no-agenda-days>{{agenda?.name}}</ore-no-agenda-days>
+	<ul>
+		<li *ngFor="let plan of selectedAgenda?.activities">{{plan.name}}</li>
+	</ul>
+</div>
+
+  <div class="col-xs-12">
+    <!-- <button class="btn btn-success" (click)="onAddToAgenda()">Add This!</button> -->
+    <button class="btn btn-primary" (click)="onEdit(day)">Edit</button>
+    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+  </div>

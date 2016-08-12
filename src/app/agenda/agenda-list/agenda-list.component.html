@@ -1,0 +1,10 @@
+<div>
+	<a class="btn btn-success" [routerLink]="['new']">New Day</a>
+</div>
+<div class="site list">
+	<ul>
+		<ore-no-agenda-days *ngFor="let agenda of agendas; let i = index" [agenda]="agenda" 
+			[agendaId]="i">
+		</ore-no-agenda-days>
+	</ul>
+</div>

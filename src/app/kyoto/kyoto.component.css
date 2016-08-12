@@ -23,3 +23,10 @@
 .h1 {
 	color: red;
 }
+
+.itenarary {
+  border: 1px solid blue;
+  background-color: grey;
+  text-align: center;
+  color: salmon;
+}

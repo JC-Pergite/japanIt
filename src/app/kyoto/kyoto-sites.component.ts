@@ -1,26 +1,38 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Event } from '../shared/event';
 import { KyotoSitesService } from './kyoto-sites.service';
+import { AgendaService } from '../agenda/agenda.service';
+import { Agenda } from '../shared/agenda';
+import { ROUTER_DIRECTIVES } from "@angular/router";
+import { Activity } from "../shared/activity"; 
+import { AgendaComponent } from "../agenda/agenda.component"
+
 
 @Component({
   moduleId: module.id,
   selector: 'ore-no-kyoto-sites',
   templateUrl: 'kyoto-sites.component.html',
   styleUrls: ['kyoto-sites.component.css'],
+  directives: [ ROUTER_DIRECTIVES ],
+  providers: [ AgendaService ]
 })
 export class KyotoSitesComponent implements OnInit, OnDestroy {
+
   selectedEvent: Event;
   private eventIndex: number;
   private sub: any;
+  plans: Activity[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, 
-                private kyotoSitesService: KyotoSitesService) {}
+  constructor(private route: ActivatedRoute, 
+              private router: Router, 
+              private kyotoSitesService: KyotoSitesService,
+              private agendaService: AgendaService) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.eventIndex = +params['id'];
-          this.selectedEvent = this.kyotoSitesService.getSite(this.eventIndex);
+      this.selectedEvent = this.kyotoSitesService.getSite(this.eventIndex);
     });
   }
 

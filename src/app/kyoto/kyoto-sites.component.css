@@ -7,3 +7,23 @@
 .h3 {
 	color: darkorange;
 }
+
+.list {
+  border: 1px solid #ccc;
+  background-color: #eee;
+  margin: 0 -5px;
+  padding: 5px;
+}
+
+.itenarary {
+	border: 3px solid orange;
+	background-color: grey;
+	text-align: center;
+}
+
+button .add-agenda {
+	background-color: blue;
+	border-radius: 2px;
+	color: white;
+	text-align: center;
+}

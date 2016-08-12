@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { ROUTER_DIRECTIVES } from "@angular/router";
 import { Event } from '../../shared/event';
 
-
 @Component({
   moduleId: module.id,
   selector: 'ore-no-kyoto-item',
