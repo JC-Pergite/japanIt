@@ -25,4 +25,8 @@ export class KyotoSitesService {
   	return this.events[id];
   }
 
+   getPlans() {
+    return this.plans;
+  }
+  
 }

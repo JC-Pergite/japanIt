@@ -1,3 +1,10 @@
-<a [routerLink]="[agendaId]" routerLinkActive="active">
+<a [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/agenda', agendaId]" routerLinkActive="active">
+	<h2>{{agenda.name}}</h2>
+</a>
+
+<a [routerLink]="[ 'dayplan', agendaId ]" routerLinkActive="active">
 	<h2>{{agenda?.name}}</h2>
 </a>
+
+
+

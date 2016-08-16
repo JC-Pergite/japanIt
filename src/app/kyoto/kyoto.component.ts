@@ -7,6 +7,9 @@ import { Agenda } from '../shared/agenda';
 // import { AgendaComponent } from '../agenda/agenda.component';
 import { AgendaService } from '../agenda/agenda.service';
 import { CurrentPlanComponent } from '../agenda/current-plan/current-plan.component';
+// import { ShopComponent } from '../agenda/current-plan/shop.component';
+
+// import { AgendaEditComponent } from '../agenda/agenda-edit/agenda-edit.component';
 
 
 @Component({

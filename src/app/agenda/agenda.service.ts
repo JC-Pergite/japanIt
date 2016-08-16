@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Activity } from '../shared/activity';
 import { Agenda } from '../shared/agenda';
 
@@ -8,7 +8,9 @@ export class AgendaService {
   private plans: Activity[] = [];
 
   private agendas: Agenda[] = [
-         new Agenda('Day 1', [new Activity('fushini', 5, 'evening')])
+         new Agenda('DayOne', [new Activity('fushini', 5, 'evening')]),
+         new Agenda('DayTwo', [new Activity('yasaka jinja', 5, 'dusk')])
+
 
   ];
 
@@ -32,9 +34,16 @@ export class AgendaService {
   // addAgenda(agenda: Agenda) {
   //   this.agendas.push(this.agenda);
   // }
+ 
+
 
    addAgenda(agenda: Agenda) {
      this.agendas.push(agenda);
+     console.log(this.agendas);
+  }
+
+     addAgendas(agendas: Agenda[]) {
+    Array.prototype.push.apply(this.agendas, agendas);
      console.log(this.agendas);
   }
     
@@ -47,7 +56,7 @@ export class AgendaService {
     this.agendas.splice(this.agendas.indexOf(agenda), 1);
   }
 
-     addPlan(plan: Activity) {
+  addPlan(plan: Activity) {
      this.plans.push(plan);
      console.log(this.plans);
   }

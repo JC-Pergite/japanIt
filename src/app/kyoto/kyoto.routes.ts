@@ -4,29 +4,17 @@ import { KyotoSitesComponent } from './kyoto-sites.component';
 import { CurrentPlanComponent } from '../agenda/current-plan/current-plan.component';
 import { KyotoStartComponent } from './kyoto-start.component';
 
-// export const KyotoRoutes: RouterConfig = [
-// 	// { path: '', component: KyotoStartComponent, 
-// 	// 	children: [
-// 			// { path: 'kyoto', component: KyotoComponent },
-// 			{ path: ':id', component: KyotoSitesComponent,
-// 				children: [
-// 					{ path: ':id/day', component: CurrentPlanComponent }
-// 				]
-// 			},
-// 			{ path: '', component: KyotoStartComponent }
 
-// 		// ]
-// 	// }
-// ];
+export const KyotoRoutes: RouterConfig = [ 
 
-export const KyotoRoutes: RouterConfig = [
-	// { path: '', component: KyotoStartComponent, 
-	// 	children: [
-			// { path: 'kyoto', component: KyotoComponent },
-			// { path: ':id', component: CurrentPlanComponent },
-			{ path: ':id', component: KyotoSitesComponent },
-			{ path: '', component: KyotoStartComponent }
-
-		// ]
-	// }
+			{ path: '', redirectTo: '/kyoto', pathMatch: 'full' },
+			{ path: 'kyoto', component: KyotoComponent, 
+				children: 
+					[
+						{ path: ':id', component: KyotoSitesComponent },
+						{ path: ':id/dayplan', component: KyotoSitesComponent },
+						{ path: 'dayplan/:id', component: CurrentPlanComponent },
+						{ path: '', component: KyotoStartComponent }
+					] 
+			}
 ];
