@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ROUTER_DIRECTIVES } from "@angular/router";
 import { Agenda } from '../../shared/agenda';
+import { AgendaService } from '../agenda.service';
+
 
 @Component({
   moduleId: module.id,
