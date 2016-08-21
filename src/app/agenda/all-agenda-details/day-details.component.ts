@@ -5,6 +5,7 @@ import { FormArray, FormGroup, FormControl, Validators,
 
 import { AgendaService } from "../agenda.service";
 import { Agenda } from "../../shared/agenda";
+// import { ROUTER_DIRECTIVES } from "@angular/router";
 
 
 @Component({
@@ -46,6 +47,7 @@ export class DayDetailsComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     const newAgenda = this.agendaForm.value;
+    // const newAgenda = new Agenda(agenda.name, agenda.activities)
     if (this.isNew) {
       this.agendaService.addAgenda(newAgenda);
     } else {

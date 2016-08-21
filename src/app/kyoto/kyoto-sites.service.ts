@@ -1,5 +1,6 @@
 "use strict";
-
+import { Http, Response } from '@angular/http';
+import { Observable }     from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Event } from '../shared/event';
 import { Activity } from "../shared/activity";

@@ -1,3 +1,5 @@
+import { Http, Response } from '@angular/http';
+import { Observable }     from 'rxjs/Observable';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Activity } from '../shared/activity';
 import { Agenda } from '../shared/agenda';
@@ -31,11 +33,6 @@ export class AgendaService {
   addPlans(plans: Activity[]) {
     Array.prototype.push.apply(this.plans, plans);
   }
-  // addAgenda(agenda: Agenda) {
-  //   this.agendas.push(this.agenda);
-  // }
- 
-
 
    addAgenda(agenda: Agenda) {
      this.agendas.push(agenda);

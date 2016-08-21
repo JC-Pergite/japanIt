@@ -18,5 +18,4 @@ export class AgendaListComponent implements OnInit {
   ngOnInit() {
   		this.agendas = this.agendaService.getAgendas();
   }
-
 }

@@ -7,11 +7,6 @@ import { Agenda } from '../shared/agenda';
 import { ROUTER_DIRECTIVES } from "@angular/router";
 import { Activity } from "../shared/activity"; 
 import { AgendaComponent } from "../agenda/agenda.component";
-// import { CurrentPlanComponent } from "../agenda/current-plan/current-plan.component";
-
-// import { SelectedDayComponent } from "../agenda/selected-day/selected-day.component";
-
-
 
 @Component({
   moduleId: module.id,
@@ -26,73 +21,42 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
   private eventIndex: number;
   private sub: any;
   plans: Activity[] = [];
-  @Input() plan: Activity;
-  @Output() submitted = new EventEmitter();
-
-
-  // selectedAgenda: Agenda;
-    // private agendaIndex: number;
-
+  @Input() selectedAgenda: Agenda;
+  @Output() saved = new EventEmitter();
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 
               private kyotoSitesService: KyotoSitesService,
               private agendaService: AgendaService) {}
+    // @Input() 
+    // set selectedAgenda (selectedAgenda: Agenda) {
+    //   this.agendaService.setAgenda(selectedAgenda)
+    // }
+
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.eventIndex = +params['id'];
       this.selectedEvent = this.kyotoSitesService.getSite(this.eventIndex);
-            this.plans = this.kyotoSitesService.getPlans();
+      this.plans = this.kyotoSitesService.getPlans();
+    })
+  };
 
-    })};
-  //     this.sub = this.route.params.subscribe(params => {
-  //     this.agendaIndex = +params['id'];
-  //     this.selectedAgenda = this.agendaService.getAgenda(this.agendaIndex)
-  // })};
 
     addToAgenda(newEvent: any) {
-     this.plans.push(newEvent);
-     console.log(this.plans);
+    const newActivity = new Activity(newEvent, null, null);
+    this.selectedAgenda.activities.push(newActivity);
+    console.log(this.selectedAgenda);
+
   }
 
-  //  onSubmit (activity: Activity){
-  //   const newActivity = new Activity(activity.name);
-  //   this.plan = newActivity;
-  //   this.kyotoSitesService.addEvent(this.plan);
-  // }
-    onSubmit () {
-    this.submitted.emit(this.plan);
-  }
-
-  // addToAgenda(newEvent: any) {
-  //   console.log(this.selectedAgenda);
-  //   this.agendaService.addPlans(this.selectedAgenda.activities['name']);
-  //   console.log(this.selectedAgenda)
-  // }
-
-  //   onSelectDay(day: Agenda) {
-  //   this.selectedDay = day;
-  // }
+    onSaved(event) {
+      console.log(event);
+      this.saved.emit({value: this.selectedAgenda});
+    }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
 }
-
-  // onSubmit (activity: Activity){
-  //   const newActivity = new Activity(activity.name);
-  //   this.plan = newActivity;
-  //   this.kyotoSitesService.addEvent(this.plan);
-  // }
-
-  // addToAgenda(newEvent: any) {
-  //    this.plans.push(newEvent);
-  //    console.log(this.plans);
-  // }
-
-  //  addToAgenda(newEvent: any) {
-  //    this.agendaService.addPlan(newEvent);
-  //    console.log(this.plans);
-  // }

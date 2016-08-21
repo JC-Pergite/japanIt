@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { KyotoSitesService } from './kyoto/kyoto-sites.service';
+import { AgendaService } from './agenda/agenda.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { KyotoSitesService } from './kyoto/kyoto-sites.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [ROUTER_DIRECTIVES],
-  providers: [ KyotoSitesService ]
+  providers: [ KyotoSitesService, AgendaService ]
 })
 
 export class AppComponent {
