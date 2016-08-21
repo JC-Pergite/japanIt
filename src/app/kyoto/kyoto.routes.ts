@@ -8,10 +8,14 @@ import { AgendaComponent}  from '../agenda/agenda.component';
 
 export const KyotoRoutes: RouterConfig = [ 
 
+			// { path: '', pathMatch: 'full', redirectTo: '/kyoto' },
 			{ path: ':kyoto', children: 
 					[
 						{ path: '', component: KyotoComponent },
-						{ path: ':id', component: KyotoSitesComponent }
+						{ path: ':id', component: KyotoSitesComponent },
+						// { path: 'kyoto/:id/dayplan', component: KyotoSitesComponent },
+						// { path: 'dayplan/:id', component: CurrentPlanComponent },
+						// { path: '', component: KyotoComponent }
 					] 
 			}
 ];

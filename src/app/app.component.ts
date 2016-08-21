@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { KyotoSitesService } from './kyoto/kyoto-sites.service';
 import { AgendaService } from './agenda/agenda.service';
+// import './rxjs-operators';
 
 
 @Component({

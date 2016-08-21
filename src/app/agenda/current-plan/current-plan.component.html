@@ -14,3 +14,81 @@
   <ore-no-kyoto-sites [selectedAgenda]="selectedAgenda" (saved)="onSaved($event)"></ore-no-kyoto-sites>
 </div>
 <router-outlet></router-outlet>
+
+<!--   <ul>
+    <li *ngFor="let day of days" [class.selected]="day === selectedDay" (click)="onSelectDay(day)"><h3>{{day.name}}</h3>
+    </li>
+  </ul>
+ -->
+<!--  <input type="text"> use ngmodel and/or click to use this for selectedAgenda! maybe even <ore-no>
+ --> 
+<!-- <ore-no-kyoto-sites [plan]="plan" (saved)="onSave(plan, $event)"></ore-no-kyoto-sites>
+ -->
+        
+	<!-- <ul>
+		<li>{{plan?.name}}</li>
+	</ul> -->
+
+
+
+
+
+<!-- 
+<div class="itenarary"> 
+<ul>
+<ore-no-agenda-list></ore-no-agenda-list>
+</ul>
+<h3>{{selectedAgenda?.name}}</h3>
+  <ul>
+    <li *ngFor="let plan of selectedAgenda?.activities">{{plan.name}}</li>
+  </ul>
+</div>
+
+  <div class="col-xs-12">
+    <button class="btn btn-primary" (click)="onEdit()">Edit</button>
+    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+  </div>
+ -->
+<!-- <div class="itenarary">
+<div class="current">
+  <ore-no-agenda-list [day]="selectedDay"></ore-no-agenda-list>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <form id="current-plan-add" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="plan-name">Name</label>
+          <input
+            type="text"
+            id="plan-name"
+            required
+            class="form-control"
+            (selectedDay)="day.name"
+            name="name">
+        </div>
+
+        <div class="col-sm-2 form-group">
+          <label for="item-amount">Activities</label>
+          <input
+            type="text"
+            id="item-amount"
+            class="form-control"
+            (newEvent)="day.activities"
+            name="activties">
+          <ore-no-kyoto-sites [newEvent]="newPlan"></ore-no-kyoto-sites>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" *ngIf="isAdd" [disabled]="!f.valid">Add</button>
+          <button class="btn btn-success" type="submit" *ngIf="isAdd" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-danger" type="button" *ngIf="!isAdd" (click)="onDelete()">Delete Item</button>
+          <button class="btn btn-primary" type="button" *ngIf="!isAdd" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div> -->

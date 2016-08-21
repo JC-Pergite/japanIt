@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Event } from '../../shared/event';
 import { KyotoSitesService } from '../../kyoto/kyoto-sites.service';
 import { AgendaService } from '../../agenda/agenda.service';
@@ -10,6 +10,8 @@ import { AgendaComponent } from "../agenda.component";
 import { AgendaListComponent } from '../agenda-list/agenda-list.component';
 import { KyotoSitesComponent} from '../../kyoto/kyoto-sites.component';
 import { KyotoComponent } from '../../kyoto/kyoto.component';
+import { Observable } from 'rxjs/Observable';
+
 
 
 @Component({
@@ -21,6 +23,8 @@ import { KyotoComponent } from '../../kyoto/kyoto.component';
   providers: [ KyotoSitesService ]
 })
 export class CurrentPlanComponent implements OnInit, OnDestroy {
+  // agenda: Observable<Agenda>;
+  // id: Observable<string>;
   selectedAgenda: Agenda;
   private agendaIndex: number;
   private sub: any;
@@ -30,7 +34,13 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, 
               private router: Router, 
               private kyotoSitesService: KyotoSitesService,
-              private agendaService: AgendaService) {}
+              private agendaService: AgendaService) {
+
+    // this.agenda = route.data.map(d => d.agenda);
+    // this.id = route.params.map(p => p.id);
+    const s: ActivatedRouteSnapshot = route.snapshot;
+    s.data['agenda'];
+  }
 
 
    ngOnInit() {

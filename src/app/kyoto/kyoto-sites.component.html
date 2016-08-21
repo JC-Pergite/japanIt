@@ -1,5 +1,64 @@
+<!-- <div class="info">
+	<h3>{{selectedEvent?.name}}</h3>
+</div> -->
+ 
+<!-- <div class="info">
+	<h3>{{selectedEvent?.name}}</h3> -->
+	  <!-- <ul>
+      	<li class="list" *ngFor="let plan of desiredAgenda?.activities">{{plan.name}}</li>
+      </ul> -->
+<!-- 	<h3>{{desiredAgenda?.activities}}</h3>
+ -->	<!-- <input [value]="selectedEvent?.name">
+	<button class="add-agenda" (click)="addToAgenda(value)">Add This!</button> -->
+<!-- </div>
+ --><!-- <div class="info">
+	<button class="add-agenda" (click)="onAddToAgenda()">Add New</button>
+</div> -->
+
+<!-- <div class="itenarary">
+	<input [(ngModel)]="selectedEvent.name" >
+	<button (click)="addToAgenda($event)">Save</button>
+</div> -->
+
+<!-- <div>
+	<input #name placeholder="do this">
+	<button class="add-agenda" (click)="addToAgenda(name.value)">Add This!</button>
+</div> -->
+
+
 <div *ngIf="selectedEvent" class="info">
 		<input #newEvent [ngModel]="selectedEvent.name">
 		<button (click)="addToAgenda(newEvent.value)">Add This!</button>
 		<button type="button" (click)="onSaved()">Save</button>
+			
+	
+<!-- 		<ore-no-current-plan [selectedPlans]="selectedPlans"></ore-no-current-plan>
+ -->
+
 </div>
+<!-- <div class="itenarary">
+<ul>
+<li>{{plan?.name}}</li>
+</ul>
+</div> -->
+
+<!-- <div>
+
+ 			<ul>
+	<ore-no-current-plan *ngFor="let plan of plans" [plan]="plan"></ore-no-current-plan> 
+				</ul> 
+</div>
+ --><!--   <ore-no-current-plan [ngModel]=input("$event.target")></ore-no-current-plan>	
+  -->
+
+<!-- <div class="itenarary">
+			<ore-no-current-plan [selectedAgenda]="selectedAgenda"></ore-no-current-plan>
+</div> -->
+
+<!-- <div>
+	<input #newEvent [ngModel]="selectedEvent.name">
+		<button (click)="addToAgenda(newEvent.value)">Add This!</button>
+		<ul>
+			<li *ngFor="let plan of plans">{{plan}}</li>
+		</ul>
+</div> -->
