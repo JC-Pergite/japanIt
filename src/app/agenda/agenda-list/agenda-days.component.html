@@ -2,6 +2,6 @@
 	<h2>{{agenda.name}}</h2>
 </a>
 
-<a [routerLink]="[ 'dayplan', agendaId ]" routerLinkActive="active">
+<a href="#" [routerLink]="[ '/agenda', agendaId, 'kyoto/:id', {id: 'eventId'} ]" routerLinkActive="active">
 	<h2>{{agenda?.name}}</h2>
 </a>

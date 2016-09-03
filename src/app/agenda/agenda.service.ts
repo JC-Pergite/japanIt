@@ -1,19 +1,18 @@
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Activity } from '../shared/activity';
 import { Agenda } from '../shared/agenda';
 
 @Injectable()
 export class AgendaService {
 
+  oldDays = [];
   private plans: Activity[] = [];
 
   private agendas: Agenda[] = [
-         new Agenda('DayOne', [new Activity('fushini', 5, 'evening')]),
-         new Agenda('DayTwo', [new Activity('yasaka jinja', 5, 'dusk')])
-
-
+         new Agenda('DayOne', [new Activity('fushini', 5, 'evening')], ''),
+         new Agenda('DayTwo', [new Activity('yasaka jinja', 5, 'dusk')], '')
   ];
 
   constructor() {}
@@ -23,7 +22,20 @@ export class AgendaService {
   }
 
   getAgenda(id: number | string) {
+    console.log(this.agendas[id]);
     return this.agendas[id]
+  }
+
+  setOg(oldDay) {
+        this.oldDays = oldDay;
+        console.log(oldDay);
+                    return this.oldDays; //goes void if not returned duh
+
+  }
+
+  getOg() {
+            return this.oldDays;
+
   }
 
   getPlans() {
@@ -53,10 +65,15 @@ export class AgendaService {
     this.agendas.splice(this.agendas.indexOf(agenda), 1);
   }
 
-  addPlan(plan: Activity) {
-     this.plans.push(plan);
+  addPlan(oldDay, plan: Activity[]) {
+     oldDay.activities.push(plan);
      console.log(this.plans);
   }
+
+  //   addPlan(plan: Activity) {
+  //    this.plans.push(plan);
+  //    console.log(this.plans);
+  // }
     
   editPlan(oldPlan: Activity, newPlan: Activity) {
     this.plans[this.plans.indexOf(oldPlan)] = newPlan;

@@ -13,3 +13,10 @@ h3 {
 	background-color: grey;
 	text-align: center;
 }
+
+.current {
+  border: 1px solid blue;
+  background-color: grey;
+  text-align: center;
+  color: salmon;
+}

@@ -1,26 +1,74 @@
 <div class="row">
   <div class="col-xs-12">
-    <form id="current-plan-add" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+    <form [formGroup]="agendaForm" (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col-sm-5 form-group">
-          <label for="plan-name">Name</label>
-          <input
-            type="text"
-            id="plan-name"
-            required
-            class="form-control"
-            [ngModel]="plan.name"
-            name="name">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success" [disabled]="!agendaForm.valid">Save</button>
+          <a class="btn btn-danger" (click)="onCancel()">Cancel</a>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" *ngIf="isAdd" [disabled]="!f.valid">Add</button>
-          <button class="btn btn-success" type="submit" *ngIf="!isAdd" [disabled]="!f.valid">Save</button>
-          <button class="btn btn-danger" type="button" *ngIf="!isAdd" (click)="onDelete()">Delete Item</button>
-          <button class="btn btn-primary" type="button" *ngIf="!isAdd" (click)="onClear()">Clear</button>
+          <div class="form-group">
+            <label for="name">Title</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="list-group" formArrayName="activities">
+            <div
+              class="row"
+              *ngFor="let activity of agendaForm.controls['activities'].controls; let i = index">
+              <div formGroupName="{{i}}">
+                <div class="col-sm-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="name">
+                </div>
+                <div class="col-sm-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="ranking">
+                </div>
+                <div class="col-sm-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="timeOfDay">
+                </div>
+                <div class="col-sm-2">
+                  <button class="btn btn-danger" (click)="onRemovePlan(i)">X</button>
+                </div>
+              </div>
+
+              <br><br>
+            </div>
+          </ul>
         </div>
       </div>
     </form>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="form-group row">
+      <div class="col-md-5"><input type="text" class="form-control" #planName></div>
+      <div class="col-md-5"><input type="text" class="form-control" #planRanking></div>
+      <div class="col-md-2">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onAddPlan(planName.value, planRanking.value)">+</button>
+      </div>
+    </div>
   </div>
 </div>

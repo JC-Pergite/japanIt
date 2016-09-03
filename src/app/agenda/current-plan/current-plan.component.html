@@ -1,16 +1,31 @@
-<div class="current">
+<!-- agendalist controls whether the agenda days are shown or not when you select one
+ -->
+
+<!-- <div class="current">
   <ore-no-agenda-list></ore-no-agenda-list>
 </div> 
   <div class="col-xs-12">
     <button class="btn btn-primary" (click)="onEdit()">Edit</button>
     <button class="btn btn-danger" (click)="onDelete()">Delete</button>
   </div>
+ -->
+  <div class="current">
+  <ore-no-agenda-list></ore-no-agenda-list>
+</div> 
+
 
 <div class="itenarary">
 <h3>{{selectedAgenda?.name}}</h3>
   <ul>
     <li *ngFor="let plan of selectedAgenda?.activities">{{plan.name}}</li>
   </ul>
-  <ore-no-kyoto-sites [selectedAgenda]="selectedAgenda" (saved)="onSaved($event)"></ore-no-kyoto-sites>
 </div>
+
 <router-outlet></router-outlet>
+
+<!-- <router-outlet></router-outlet> seems to be utterly useless -->
+
+
+<div>
+  	<ore-no-kyoto-sites [selectedAgenda]="selectedAgenda" (saved)="onSaved($event)"></ore-no-kyoto-sites>
+</div>

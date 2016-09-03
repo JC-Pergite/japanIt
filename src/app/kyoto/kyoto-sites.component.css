@@ -1,3 +1,11 @@
+.deets {
+  border: 1px solid #ccc;
+  background-color: grey;
+  margin: 0 -5px;
+  padding: 5px;
+  color: salmon;
+}
+
 .info {
 	border: 1px solid blue;
 	background-color: grey;

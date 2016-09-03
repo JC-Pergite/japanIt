@@ -6,27 +6,58 @@
  * User Configuration.
  **********************************************************************************************/
 /** Map relative paths to URLs. */
+
+// var ngVer = '2.0.0-rc.4';
+// var routerVer = '@3.0.0-beta.2';
+// var formsVer = '@0.2.0';
+
+// var map = {
+//   'app':                        'app', // 'dist',
+//   '@angular':                   'https://npmcdn.com/@angular',
+//   '@angular/router':            'https://npmcdn.com/@angular/router@3.0.0-beta.2',
+//   'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
+
+// };
+
+/** User packages configuration. */
+// var packages = {
+//   'app':                        { main: 'main.js',  defaultExtension: 'ts' },
+//   'rxjs':                       { defaultExtension: 'js' },
+
+// };
+
 const map: any = {
 };
 
-/** User packages configuration. */
 const packages: any = {
 };
+
+// var ngPackageNames = [
+//   'common',
+//   'compiler',
+//   'core',
+//   'http',
+//   'platform-browser',
+//   'platform-browser-dynamic',
+//   'router-deprecated',
+//   'upgrade',
+// ];
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
  * Everything underneath this line is managed by the CLI.
  **********************************************************************************************/
-const barrels: string[] = [
+var barrels: string[] = [
   // Angular specific barrels.
   '@angular/core',
   '@angular/common',
   '@angular/compiler',
   '@angular/forms',
   '@angular/http',
-  '@angular/router',
+  '@angular/router',   
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
+
 
   // Thirdparty barrels.
   'rxjs',
@@ -38,7 +69,7 @@ const barrels: string[] = [
   /** @cli-barrel */
 ];
 
-const cliSystemConfigPackages: any = {};
+var cliSystemConfigPackages: any = {};
 barrels.forEach((barrelName: string) => {
   cliSystemConfigPackages[barrelName] = { main: 'index' };
 });

@@ -1,3 +1,2 @@
-export { KyotoItemComponent } from './kyoto-item.component';
-export { KyotoListComponent } from './kyoto-list.component';
-
+export * from './kyoto-item.component';
+export * from './kyoto-list.component';

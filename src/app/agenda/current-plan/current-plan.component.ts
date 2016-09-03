@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { Component, OnInit, OnDestroy, Input, Output } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Event } from '../../shared/event';
 import { KyotoSitesService } from '../../kyoto/kyoto-sites.service';
 import { AgendaService } from '../../agenda/agenda.service';
@@ -20,7 +20,7 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'current-plan.component.html',
   // styleUrls: ['current-plan.component.css'],
   directives: [ ROUTER_DIRECTIVES, AgendaListComponent, KyotoComponent, KyotoSitesComponent ],
-  providers: [ KyotoSitesService ]
+  providers: [ KyotoSitesService, AgendaService ]
 })
 export class CurrentPlanComponent implements OnInit, OnDestroy {
   // agenda: Observable<Agenda>;
@@ -30,6 +30,10 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
   private sub: any;
   plans: Activity[] = [];
   agendas: Agenda[];
+  oldDays: Array<any>;
+
+  // Output(): selectedAgenda;
+
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 
@@ -45,10 +49,16 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
 
    ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.agendaIndex = +params['id'];
+      this.agendaIndex = params['id'];
       this.selectedAgenda = this.agendaService.getAgenda(this.agendaIndex);
+      this.selectedAgenda.id = this.agendaIndex.toString();
+
       this.plans = this.agendaService.getPlans();
     });
+           this.oldDays = this.agendaService.setOg(this.selectedAgenda);
+
+       console.log(this.oldDays);
+ 
   }
  
 
@@ -62,8 +72,11 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
   }
 
   onSaved(event) {
-    console.log(this.selectedAgenda['id']);
+    console.log(this.oldDays);
+    console.log(this.selectedAgenda.activities  );
+
     console.log(event);
+
   }
 
   ngOnDestroy() {

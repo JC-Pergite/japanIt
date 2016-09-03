@@ -1,3 +1,7 @@
-<a [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/kyoto', eventId, '/dayplan/']" routerLinkActive="active">
+<!-- <a [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/kyoto', eventId]" routerLinkActive="active">
 	<h2>{{event.name}}</h2>
+</a> -->
+
+<a href="#" [routerLink]="[ eventId ]" routerLinkActive="active">
+<h3>{{event?.name}}</h3>
 </a>

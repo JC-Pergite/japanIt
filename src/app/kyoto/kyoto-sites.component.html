@@ -1,5 +1,17 @@
-<div *ngIf="selectedEvent" class="info">
-		<input #newEvent [ngModel]="selectedEvent.name">
-		<button (click)="addToAgenda(newEvent.value)">Add This!</button>
-		<button type="button" (click)="onSaved()">Save</button>
+<div class="events">
+	<ore-no-kyoto-list></ore-no-kyoto-list>
 </div>
+		<div *ngIf="selectedEvent" class="info">
+			<input #newEvent [ngModel]="selectedEvent.name">
+			<button (click)="addToAgenda(newEvent.value)">Add This!</button>
+			<button type="button" (click)="onSaved()">Save</button>
+		</div>
+
+
+<!-- <div>
+		<div *ngIf="selectedEvent" class="info">
+			<input #newEvent [ngModel]="selectedEvent.name">
+			<button (click)="addToAgenda(newEvent.value)">Add This!</button>
+			<button type="button" (click)="onSaved()">Save</button>
+		</div>
+</div> -->
