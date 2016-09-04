@@ -14,16 +14,16 @@ import { AgendaService } from '../agenda/agenda.service';
   selector: 'ore-no-kyoto',
   templateUrl: 'kyoto.component.html',
   styleUrls: ['kyoto.component.css'],
-  directives: [ ROUTER_DIRECTIVES, KyotoListComponent ],
+  directives: [ ROUTER_DIRECTIVES, KyotoSitesComponent ],
   providers: [ KyotoSitesService, AgendaService ]
 })
-export class KyotoComponent implements OnInit {
+export class KyotoComponent {
 
-  events: Event[];
+  // events: Event[];
   
-  constructor(private kyotoSitesService: KyotoSitesService) {}
+  // constructor(private kyotoSitesService: KyotoSitesService) {}
 
-  ngOnInit() {
-      this.events = this.kyotoSitesService.getSites();
-  }
+  // ngOnInit() {
+  //     this.events = this.kyotoSitesService.getSites();
+  // }
 }

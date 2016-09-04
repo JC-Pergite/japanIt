@@ -24,8 +24,9 @@ export const APP_ROUTER_PROVIDERS: any[] = [
 
       { path: ':agenda', children: [
             { path: '', component: AgendaComponent },
-            { path: 'new', component: AgendaEditComponent },
+            // { path: 'new', component: AgendaEditComponent },
             { path: ':id', component: CurrentPlanComponent },
+          { path: 'kyoto', pathMatch: 'prefix', redirectTo: ':id/kyoto'},
 
                   { path: ':id', component: CurrentPlanComponent, children: [...KyotoRoutes]} , 
       ],
