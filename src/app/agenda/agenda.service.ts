@@ -7,7 +7,7 @@ import { Agenda } from '../shared/agenda';
 @Injectable()
 export class AgendaService {
 
-  oldDays = [];
+  
   private plans: Activity[] = [];
 
   private agendas: Agenda[] = [
@@ -24,18 +24,6 @@ export class AgendaService {
   getAgenda(id: number | string) {
     console.log(this.agendas[id]);
     return this.agendas[id]
-  }
-
-  setOg(oldDay) {
-        this.oldDays = oldDay;
-        console.log(oldDay);
-                    return this.oldDays; //goes void if not returned duh
-
-  }
-
-  getOg() {
-            return this.oldDays;
-
   }
 
   getPlans() {

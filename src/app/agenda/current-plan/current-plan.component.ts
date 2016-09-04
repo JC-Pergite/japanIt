@@ -11,6 +11,10 @@ import { AgendaListComponent } from '../agenda-list/agenda-list.component';
 import { KyotoSitesComponent} from '../../kyoto/kyoto-sites.component';
 import { KyotoComponent } from '../../kyoto/kyoto.component';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operator/map';
+import { EditDay } from '../../edit-day';
+
+
 
 
 
@@ -30,7 +34,7 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
   private sub: any;
   plans: Activity[] = [];
   agendas: Agenda[];
-  oldDays: Array<any>;
+  days: Array<EditDay<Agenda>>;
 
   // Output(): selectedAgenda;
 
@@ -44,6 +48,7 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
     // this.id = route.params.map(p => p.id);
     // const s: ActivatedRouteSnapshot = route.snapshot;
     // s.data['agenda'];
+    this.days = agendaService.getAgendas().map(day => new EditDay(day));
   }
 
 
@@ -55,9 +60,9 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
 
       this.plans = this.agendaService.getPlans();
     });
-           this.oldDays = this.agendaService.setOg(this.selectedAgenda);
+           // this.oldDays = this.agendaService.setOg(this.selectedAgenda);
 
-       console.log(this.oldDays);
+       // console.log(this.oldDays);
  
   }
  
@@ -71,11 +76,13 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
     this.router.navigate(['/agenda']);
   }
 
-  onSaved(event) {
-    console.log(this.oldDays);
-    console.log(this.selectedAgenda.activities  );
+  onSaved(editDay: EditDay<Agenda>, updated: Agenda) {
+    // console.log(this.oldDays);
+    console.log(this.selectedAgenda);
+    editDay.day = updated;
+        console.log(this.selectedAgenda);
 
-    console.log(event);
+    console.log(editDay);
 
   }
 

@@ -9,6 +9,8 @@ import { Activity } from "../shared/activity";
 import { AgendaComponent } from "../agenda/agenda.component";
 import { KyotoListComponent } from './sites-list/kyoto-list.component';
 import { CurrentPlanComponent } from "../agenda/current-plan/current-plan.component";
+import { UpdaterService } from '../updater.service';
+import { EditDay } from '../edit-day';
 
 // import { map } from 'rxjs/operator/map';
 // import { switchMap } from 'rxjs/operator/switchMap';
@@ -21,7 +23,7 @@ import { CurrentPlanComponent } from "../agenda/current-plan/current-plan.compon
   templateUrl: 'kyoto-sites.component.html',
   styleUrls: ['kyoto-sites.component.css'],
   directives: [ ROUTER_DIRECTIVES, KyotoListComponent ],
-  providers: [ AgendaService, KyotoSitesService ]
+  providers: [ AgendaService, KyotoSitesService, UpdaterService ]
 })
 export class KyotoSitesComponent implements OnInit, OnDestroy {
 
@@ -29,18 +31,22 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
   private eventIndex: number;
   private sub: any;
   plans: Activity[] = [];
-  @Input() selectedAgenda: Agenda;
+  // @Input() selectedAgenda: Agenda;
   @Output() saved = new EventEmitter();
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 
               private kyotoSitesService: KyotoSitesService,
-              private agendaService: AgendaService) {}
-    // @Input() 
-    // set selectedAgenda (selectedAgenda: Agenda) {
-    //   this.agendaService.setAgenda(selectedAgenda)
-    // }
+              private agendaService: AgendaService,
+              private updaterService: UpdaterService<Agenda>) {}
+    @Input() 
+    set selectedAgenda (selectedAgenda: Agenda) {
+      this.updaterService.setDay(selectedAgenda)
+    }
 
+    get selectedAgenda () {
+      return this.updaterService.getDay();
+    }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -81,7 +87,9 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
   }
 
     onSaved() {
-      this.saved.emit({value: this.selectedAgenda});
+          console.log(this.selectedAgenda);
+
+      this.saved.next(this.updaterService.getDay());
     }
 
   ngOnDestroy() {

@@ -17,7 +17,8 @@
 <div class="itenarary">
 <h3>{{selectedAgenda?.name}}</h3>
   <ul>
-    <li *ngFor="let plan of selectedAgenda?.activities">{{plan.name}}</li>
+    <li *ngFor="let editDay of days">{{editDay.name}}<ore-no-kyoto-sites (saved)="onSaved(editDay, $event)" [selectedAgenda]="editDay.day"></ore-no-kyoto-sites>
+    </li>
   </ul>
 </div>
 
@@ -26,6 +27,6 @@
 <!-- <router-outlet></router-outlet> seems to be utterly useless -->
 
 
-<div>
-  	<ore-no-kyoto-sites [selectedAgenda]="selectedAgenda" (saved)="onSaved($event)"></ore-no-kyoto-sites>
-</div>
+<!-- <div>
+  	<ore-no-kyoto-sites [selectedAgenda]="selectedAgenda" (saved)="onSaved(current, $event)"></ore-no-kyoto-sites>
+</div> -->
