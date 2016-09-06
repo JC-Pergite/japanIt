@@ -7,7 +7,7 @@ export class UpdaterService<T> {
         this.oldDays = day;
         // console.log(oldDay);
         this.currentDay = this.replica(day)
-                    // return this.oldDays; //goes void if not returned duh
+                    return this.oldDays; //goes void if not returned duh
 
   }
 

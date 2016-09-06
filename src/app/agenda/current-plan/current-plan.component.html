@@ -10,7 +10,7 @@
   <ul>
     <li *ngFor="let plan of selectedAgenda?.activities">{{plan.name}}</li>
   </ul>
-      <ore-no-kyoto-sites *ngFor="let editDay of days" [selectedAgenda]="editDay.day" 
+    <ore-no-kyoto-sites *ngFor="let editDay of days" [selectedAgenda]="editDay.day" 
         (saved)="onSaved(editDay, $event)"></ore-no-kyoto-sites>
 </div>
 

@@ -1,5 +1,5 @@
-<div>
+<div *ngIf="selectedEvent">
 			<input #newEvent [ngModel]="selectedEvent.name">
 			<button (click)="addToAgenda(newEvent.value)">Add This!</button>
-			<button type="button" (click)="onSaved()">Save</button>
+			<button type="button" (click)="save()">Save</button>
 </div>

@@ -71,7 +71,7 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
     this.selectedAgenda.activities.push(newActivity);
   }
 
-    onSaved() {
+    save() {
       this.saved.next(this.updaterService.getDay());
     }
 

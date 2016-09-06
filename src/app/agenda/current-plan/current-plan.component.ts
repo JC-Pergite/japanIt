@@ -58,10 +58,10 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
   }
 
   onSaved(editDay: EditDay<Agenda>, updated: Agenda) {
-    console.log(updated);
-    editDay.day = updated;
+     editDay.day = updated;
   }
 
+ 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
