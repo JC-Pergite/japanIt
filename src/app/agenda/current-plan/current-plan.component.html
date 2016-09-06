@@ -1,15 +1,10 @@
-<!-- <div class="current">
+<div *ngIf="selectedAgenda" class="current">
   <ore-no-agenda-list></ore-no-agenda-list>
-</div> 
+</div>
   <div class="col-xs-12">
     <button class="btn btn-primary" (click)="onEdit()">Edit</button>
     <button class="btn btn-danger" (click)="onDelete()">Delete</button>
   </div>
- -->
-  <div *ngIf="selectedAgenda" class="current">
-  <ore-no-agenda-list></ore-no-agenda-list>
-  </div>
-
 <div class="itenarary">
 <h3>{{selectedAgenda?.name}}</h3>
   <ul>

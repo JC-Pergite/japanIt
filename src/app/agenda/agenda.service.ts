@@ -30,20 +30,11 @@ export class AgendaService {
     return this.plans;
   }
 
-  addPlans(plans: Activity[]) {
-    Array.prototype.push.apply(this.plans, plans);
-  }
-
-   addAgenda(agenda: Agenda) {
+  addAgenda(agenda: Agenda) {
      this.agendas.push(agenda);
      console.log(this.agendas);
   }
 
-     addAgendas(agendas: Agenda[]) {
-    Array.prototype.push.apply(this.agendas, agendas);
-     console.log(this.agendas);
-  }
-    
   editAgenda(oldAgenda: Agenda, newAgenda: Agenda) {
     this.agendas[this.agendas.indexOf(oldAgenda)] = newAgenda;
   }
@@ -51,25 +42,6 @@ export class AgendaService {
 
   deleteAgenda(agenda: Agenda) {
     this.agendas.splice(this.agendas.indexOf(agenda), 1);
-  }
-
-  addPlan(oldDay, plan: Activity[]) {
-     oldDay.activities.push(plan);
-     console.log(this.plans);
-  }
-
-  //   addPlan(plan: Activity) {
-  //    this.plans.push(plan);
-  //    console.log(this.plans);
-  // }
-    
-  editPlan(oldPlan: Activity, newPlan: Activity) {
-    this.plans[this.plans.indexOf(oldPlan)] = newPlan;
-  }
-  
-
-     deletePlan(plan: Activity) {
-    this.plans.splice(this.plans.indexOf(plan), 1);
   }
   
 }

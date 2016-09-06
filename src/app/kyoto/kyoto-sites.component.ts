@@ -1,20 +1,16 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
 import { Event } from '../shared/event';
 import { KyotoSitesService } from './kyoto-sites.service';
-import { AgendaService } from '../agenda/agenda.service';
 import { Agenda } from '../shared/agenda';
-import { ROUTER_DIRECTIVES } from "@angular/router";
-import { Activity } from "../shared/activity"; 
-import { AgendaComponent } from "../agenda/agenda.component";
+import { Activity } from "../shared/activity";
 import { KyotoListComponent } from './sites-list/kyoto-list.component';
-import { CurrentPlanComponent } from "../agenda/current-plan/current-plan.component";
 import { UpdaterService } from '../updater.service';
 import { EditDay } from '../edit-day';
 
-import { map } from 'rxjs/operator/map';
-import { switchMap } from 'rxjs/operator/switchMap';
-import { Observable } from 'rxjs/Observable';
+// import { map } from 'rxjs/operator/map';
+// import { switchMap } from 'rxjs/operator/switchMap';
+// import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -50,9 +46,7 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.eventId = +params['id'];
       this.selectedEvent = this.kyotoSitesService.getSite(this.eventId);
-      // this.plans = this.kyotoSitesService.getPlans();
     })
-    console.log(this.selectedAgenda)
   };
 
   // using map rxjs
@@ -73,20 +67,11 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
  
 
     addToAgenda(newEvent: any) {
-          console.log(this.selectedAgenda);
-                    console.log(this.selectedEvent);
-
-    console.log(newEvent);
-
     const newActivity = new Activity(newEvent, null, null);
     this.selectedAgenda.activities.push(newActivity);
-    console.log(this.selectedAgenda);
-
   }
 
     onSaved() {
-          console.log(this.selectedAgenda);
-
       this.saved.next(this.updaterService.getDay());
     }
 

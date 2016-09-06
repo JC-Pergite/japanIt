@@ -5,7 +5,6 @@ import { FormArray, FormGroup, FormControl, Validators,
 
 import { AgendaService } from "../agenda.service";
 import { Agenda } from "../../shared/agenda";
-// import { ROUTER_DIRECTIVES } from "@angular/router";
 
 
 @Component({
