@@ -12,9 +12,9 @@ import { CurrentPlanComponent } from "../agenda/current-plan/current-plan.compon
 import { UpdaterService } from '../updater.service';
 import { EditDay } from '../edit-day';
 
-// import { map } from 'rxjs/operator/map';
-// import { switchMap } from 'rxjs/operator/switchMap';
-// import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operator/map';
+import { switchMap } from 'rxjs/operator/switchMap';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -23,21 +23,19 @@ import { EditDay } from '../edit-day';
   templateUrl: 'kyoto-sites.component.html',
   styleUrls: ['kyoto-sites.component.css'],
   directives: [ ROUTER_DIRECTIVES, KyotoListComponent ],
-  providers: [ AgendaService, KyotoSitesService, UpdaterService ]
+  providers: [ KyotoSitesService, UpdaterService ]
 })
 export class KyotoSitesComponent implements OnInit, OnDestroy {
 
   selectedEvent: Event = null;
-  private eventIndex: number;
+  private eventId: number;
   private sub: any;
   plans: Activity[] = [];
-  // @Input() selectedAgenda: Agenda;
   @Output() saved = new EventEmitter();
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 
               private kyotoSitesService: KyotoSitesService,
-              private agendaService: AgendaService,
               private updaterService: UpdaterService<Agenda>) {}
     @Input() 
     set selectedAgenda (selectedAgenda: Agenda) {
@@ -50,18 +48,18 @@ export class KyotoSitesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.eventIndex = +params['id'];
-      this.selectedEvent = this.kyotoSitesService.getSite(this.eventIndex);
-      this.plans = this.kyotoSitesService.getPlans();
+      this.eventId = +params['id'];
+      this.selectedEvent = this.kyotoSitesService.getSite(this.eventId);
+      // this.plans = this.kyotoSitesService.getPlans();
     })
+    console.log(this.selectedAgenda)
   };
 
   // using map rxjs
   // ngOnInit() {
   //   this.sub = this.route.params.map(params => params['id']).subscribe((id) => {
   //     this.kyotoSitesService
-  //       .getSite(id)
-  //       .subscribe(selectedEvent => this.selectedEvent = selectedEvent);
+  //       .getSite(id).subscribe(selectedEvent => this.selectedEvent = selectedEvent);
   //     this.plans = this.kyotoSitesService.getPlans();
   //   });
   // }

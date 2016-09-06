@@ -10,5 +10,5 @@ import { Event } from '../../shared/event';
 })
 export class KyotoItemComponent {
   @Input() event: Event; 
-  @Input() eventId: number;
+  // @Input() eventId: number;
 }

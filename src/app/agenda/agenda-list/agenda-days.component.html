@@ -1,6 +1,10 @@
 <a [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/agenda', agendaId]" routerLinkActive="active">
-	<h2>{{agenda.name}}</h2>
+	<h2>{{agenda?.name}}</h2>
 </a>
+
+<!-- <a [routerLink]="['/agenda', agendaId]" routerLinkActive="active">
+	<h2>{{agenda?.name}}</h2>
+</a> -->
 
 <a href="#" [routerLink]="[ '/agenda', agendaId, 'kyoto/:id', {id: 'eventId'} ]" routerLinkActive="active">
 	<h2>{{agenda?.name}}</h2>

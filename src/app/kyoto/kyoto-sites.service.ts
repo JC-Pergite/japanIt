@@ -11,9 +11,9 @@ export class KyotoSitesService {
   private plans: Activity[] = [];
 
   private events: Event[] = [
-      new Event('Fushini Inari', 'Arguably the best.', '', ''),
-      new Event('Ginkakuji', 'Gold standard', '', ''),
-      new Event('Kinkakuji', 'No silver, but the garden is great', '', '')
+      new Event('Fushini Inari', 'Arguably the best.', '', '', 0),
+      new Event('Ginkakuji', 'Gold standard', '', '', 1),
+      new Event('Kinkakuji', 'No silver, but the garden is great', '', '', 2)
     ];
 
   constructor() {}

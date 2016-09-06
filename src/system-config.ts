@@ -47,7 +47,7 @@ const packages: any = {
 /***********************************************************************************************
  * Everything underneath this line is managed by the CLI.
  **********************************************************************************************/
-var barrels: string[] = [
+const barrels: string[] = [
   // Angular specific barrels.
   '@angular/core',
   '@angular/common',
@@ -69,7 +69,7 @@ var barrels: string[] = [
   /** @cli-barrel */
 ];
 
-var cliSystemConfigPackages: any = {};
+const cliSystemConfigPackages: any = {};
 barrels.forEach((barrelName: string) => {
   cliSystemConfigPackages[barrelName] = { main: 'index' };
 });

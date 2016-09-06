@@ -23,7 +23,7 @@ import { EditDay } from '../../edit-day';
   selector: 'ore-no-current-plan',
   templateUrl: 'current-plan.component.html',
   // styleUrls: ['current-plan.component.css'],
-  directives: [ ROUTER_DIRECTIVES, AgendaListComponent, KyotoComponent, KyotoSitesComponent ],
+  directives: [ ROUTER_DIRECTIVES, AgendaListComponent, KyotoSitesComponent ],
   providers: [ KyotoSitesService, AgendaService ]
 })
 export class CurrentPlanComponent implements OnInit, OnDestroy {
@@ -59,11 +59,7 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
       this.selectedAgenda.id = this.agendaIndex.toString();
 
       this.plans = this.agendaService.getPlans();
-    });
-           // this.oldDays = this.agendaService.setOg(this.selectedAgenda);
-
-       // console.log(this.oldDays);
- 
+    }); 
   }
  
 
@@ -78,7 +74,7 @@ export class CurrentPlanComponent implements OnInit, OnDestroy {
 
   onSaved(editDay: EditDay<Agenda>, updated: Agenda) {
     // console.log(this.oldDays);
-    console.log(this.selectedAgenda);
+    console.log(updated);
     editDay.day = updated;
         console.log(this.selectedAgenda);
 

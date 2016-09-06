@@ -1,18 +1,5 @@
-<div class="events">
-	<ore-no-kyoto-list></ore-no-kyoto-list>
+<div>
+			<input #newEvent [ngModel]="selectedEvent.name">
+			<button (click)="addToAgenda(newEvent.value)">Add This!</button>
+			<button type="button" (click)="onSaved()">Save</button>
 </div>
-		<div *ngIf="selectedEvent" class="info">
-			<input #newEvent [ngModel]="selectedEvent.name">
-			<button (click)="addToAgenda(newEvent.value)">Add This!</button>
-			<button type="button" (click)="onSaved()">Save</button>
-		</div>
-<!-- <router-outlet></router-outlet>
- -->
-
-<!-- <div>
-		<div *ngIf="selectedEvent" class="info">
-			<input #newEvent [ngModel]="selectedEvent.name">
-			<button (click)="addToAgenda(newEvent.value)">Add This!</button>
-			<button type="button" (click)="onSaved()">Save</button>
-		</div>
-</div> -->

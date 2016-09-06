@@ -5,7 +5,7 @@ import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { AgendaListComponent } from './agenda-list/agenda-list.component';
 // import { DayDetailsComponent } from './day-details/day-details.component';
 // import { KyotoComponent } from '../kyoto/kyoto.component';
-// import { CurrentPlanComponent } from './current-plan/current-plan.component';
+import { CurrentPlanComponent } from './current-plan/current-plan.component';
 
 
 @Component({
@@ -13,10 +13,9 @@ import { AgendaListComponent } from './agenda-list/agenda-list.component';
   selector: 'ore-no-agenda',
   templateUrl: 'agenda.component.html',
   styleUrls: ['agenda.component.css'],
-  directives: [ ROUTER_DIRECTIVES, AgendaListComponent ],
+  directives: [ ROUTER_DIRECTIVES, AgendaListComponent, CurrentPlanComponent ],
   providers: [ AgendaService ]
 
 })
-export class AgendaComponent{
-
+export class AgendaComponent {
 }
